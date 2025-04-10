@@ -7,6 +7,8 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "octofit_tracker.settings")
+    if len(sys.argv) > 1 and sys.argv[1] == 'runserver' and len(sys.argv) == 2:
+        sys.argv.append('8001')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
